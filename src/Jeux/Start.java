@@ -97,6 +97,7 @@ public class Start extends JFrame {
         this.setPreferredSize(new Dimension(600, 300));
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.pack();
+        this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
 

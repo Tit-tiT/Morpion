@@ -1,6 +1,8 @@
 package Jeux;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Bouton extends JButton {
     int x;
@@ -10,16 +12,16 @@ public class Bouton extends JButton {
 
 
     public Bouton(int x,int y){
-        super(String.valueOf(x)+" "+String.valueOf(y));
+       // super(String.valueOf(x)+" "+String.valueOf(y));
         this.x = x;
         this.y = y;
     }
 
-    public int getX() {
+    public int getX2() {
         return x;
     }
 
-    public int getY() {
+    public int getY2() {
         return y;
     }
 
@@ -35,4 +37,5 @@ public class Bouton extends JButton {
     public int getBy() {
         return by;
     }
+
 }
