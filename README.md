@@ -11,7 +11,7 @@ Double cliquer sur `Morpion.bat`.
 
 ## Dépendances
 - Avoir JDK.
-- Linux (pas essayé sur Windows).
+- Linux ou Windows.
 
 ## Remarque :  
 - Il faut entrer les prénoms des deux joueurs au début.
