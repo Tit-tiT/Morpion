@@ -23,7 +23,9 @@ public class Start extends JFrame {
     JButton suivant;
 
     public Start() {
-        super("Jeu Tic-Tac-Toe");
+        super("Morpion");
+        Image icon = new ImageIcon("img/icone.png").getImage();
+        this.setIconImage(icon);
 
         principal = new JPanel();
         principal.setLayout(new BorderLayout());
@@ -46,7 +48,7 @@ public class Start extends JFrame {
 
         gbc.gridx = 0;
         gbc.gridy = 0;
-        nomJ1 = new JLabel("Nom Joueur 1 :");
+        nomJ1 = new JLabel("Joueur 1 :");
         nomJ1.setFont(new Font("Arial", Font.PLAIN, 24));
         centre.add(nomJ1,gbc);
 
@@ -59,7 +61,7 @@ public class Start extends JFrame {
 
         gbc.gridx = 0;
         gbc.gridy = 1;
-        nomJ2 = new JLabel("Nom Joueur 2 :");
+        nomJ2 = new JLabel("Joueur 2 :");
         nomJ2.setFont(new Font("Arial", Font.PLAIN, 24));
         centre.add(nomJ2,gbc);
 
@@ -86,8 +88,10 @@ public class Start extends JFrame {
         suivant.setFont(new Font("Arial", Font.PLAIN, 20));
         suivant.setBackground(Color.WHITE);
         suivant.addActionListener(actionEvent -> {
-            new Jeu(J1.getText(),J2.getText());
+            if(J1.getText().equals("")){J1.setText("Joueur 1");}
+            if(J2.getText().equals("")){J2.setText("Joueur 2");}
             this.dispose();
+            new Jeu(J1.getText(),J2.getText());
         });
         bas.add(suivant);
 
@@ -98,6 +102,7 @@ public class Start extends JFrame {
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.pack();
         this.setLocationRelativeTo(null);
+        this.setResizable(false);
         this.setVisible(true);
     }
 

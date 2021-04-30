@@ -20,6 +20,10 @@ public class Jeu extends JFrame implements ActionListener {
     Bouton[] bouton;
 
     public Jeu(String J1, String J2){
+        super("Morpion");
+        Image icon = new ImageIcon("img/icone.png").getImage();
+        this.setIconImage(icon);
+
         this.J1 = J1;
         this.J2 = J2;
 
@@ -67,6 +71,7 @@ public class Jeu extends JFrame implements ActionListener {
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.pack();
         this.setLocationRelativeTo(null);
+        this.setResizable(false);
         this.setVisible(true);
     }
 
@@ -134,7 +139,7 @@ public class Jeu extends JFrame implements ActionListener {
         public void actionPerformed(ActionEvent e) {
 
             if(tour==1 && !((Bouton)e.getSource()).isActif()){
-                ImageIcon ico = new ImageIcon("/home/titouan/Documents/Perso/jeux/Tic-Tac-Toe/img/cercle.png");
+                ImageIcon ico = new ImageIcon("img/cercle.png");
                 Image img = ico.getImage();
                 Image cercle = img.getScaledInstance(100,100,java.awt.Image.SCALE_SMOOTH);
                 Bouton but = ((Bouton)e.getSource());
@@ -142,9 +147,10 @@ public class Jeu extends JFrame implements ActionListener {
                 but.setIcon(new ImageIcon(cercle));
 
                 if(gagner(bouton,tour)){
-                    int rep = JOptionPane.showConfirmDialog(null,J1+" a gagné voulez vous recommencé ?", "BRAVO", JOptionPane.YES_NO_OPTION);
+                    int rep = JOptionPane.showConfirmDialog(null,J1+" a gagné, voulez-vous recommencer ?", "BRAVO", JOptionPane.YES_NO_OPTION);
                     if(rep == JOptionPane.YES_OPTION){
-                        new Start();
+                        dispose();
+                        new Jeu(J2,J1);
                     }
                     dispose();
                 }
@@ -152,7 +158,7 @@ public class Jeu extends JFrame implements ActionListener {
                 tour=2;
             }
             else if(tour==2 && !((Bouton)e.getSource()).isActif()){
-                ImageIcon ico = new ImageIcon("/home/titouan/Documents/Perso/jeux/Tic-Tac-Toe/img/croix.png");
+                ImageIcon ico = new ImageIcon("img/croix.png");
                 Image img = ico.getImage();
                 Image croix = img.getScaledInstance(100,100,java.awt.Image.SCALE_SMOOTH);
                 Bouton but = ((Bouton)e.getSource());
@@ -160,9 +166,10 @@ public class Jeu extends JFrame implements ActionListener {
                 but.setIcon(new ImageIcon(croix));
 
                 if(gagner(bouton,tour)){
-                    int rep = JOptionPane.showConfirmDialog(null,J2+" a gagné voulez vous recommencé ?", "BRAVO", JOptionPane.YES_NO_OPTION);
+                    int rep = JOptionPane.showConfirmDialog(null,J2+" a gagné, voulez-vous recommencer ?", "BRAVO", JOptionPane.YES_NO_OPTION);
                     if(rep == JOptionPane.YES_OPTION){
-                        new Start();
+                        dispose();
+                        new Jeu(J2,J1);
                     }
                     dispose();
                 }
@@ -177,9 +184,10 @@ public class Jeu extends JFrame implements ActionListener {
                 }
             }
             if(i==9 && !gagner(bouton,1) && !gagner(bouton,2)){
-                int rep = JOptionPane.showConfirmDialog(null,"Exæquo voulez vous recommencé ?", "Exæquo", JOptionPane.YES_NO_OPTION);
+                int rep = JOptionPane.showConfirmDialog(null,"Exæquo, voulez-vous recommencer ?", "Exæquo", JOptionPane.YES_NO_OPTION);
                 if(rep == JOptionPane.YES_OPTION){
-                    new Start();
+                    dispose();
+                    new Jeu(J2,J1);
                 }
                 dispose();
             }
