@@ -105,8 +105,4 @@ public class Start extends JFrame {
         this.setResizable(false);
         this.setVisible(true);
     }
-
-    public static void main(String[] args) {
-        new Start();
-    }
 }
