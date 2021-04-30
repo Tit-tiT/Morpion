@@ -21,7 +21,7 @@ public class Jeu extends JFrame implements ActionListener {
 
     public Jeu(String J1, String J2){
         super("Morpion");
-        Image icon = new ImageIcon("img/icone.png").getImage();
+        Image icon = new ImageIcon("./img/icone.png").getImage();
         this.setIconImage(icon);
 
         this.J1 = J1;
